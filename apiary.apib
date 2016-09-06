@@ -1,2 +1,29 @@
-# Test API Documentation
+FORMAT: 1A
+HOST: http://mysimpleshop.apiblueprint.org/
 
+# My Simple Shop
+
+This is My Simple Shop's API documentation
+
+## Users
+
+### Register User [POST /users]
+
++ Request (application/json)
+    + Attributes(object)
+        + email: user@example.com (string, required)
+        + password (string, required)
+        + first_name (string, required)
+        + last_name (string, required)
+
++ Response 201 (application/json)
+  + Attributes(object)
+     + token(string, required)
+    
++ Response 422 (application/json)
+  + Attributes(object)
+     + status_code: 422
+     + message: "Invalid data in request body"
+     + errors (array)
+          + path: `[email]`
+          + message: Invalid email
